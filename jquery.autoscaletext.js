@@ -1,7 +1,7 @@
 (function($) {
 
 	$.fn.hasScrollBar = function() {
-		return this.get(0).scrollHeight > this.height();
+		return this.get(0).scrollHeight > this.height() || this.get(0).scrollWidth > this.width();
 	};
 
 	$.fn.autoScaleText = function() {
@@ -18,7 +18,7 @@
 				var fontSize = parseInt($el.css('font-size'));
 				$el.css('font-size', fontSize + (scaleDown ? -1 : 1) + 'px');
 				// prevent endless looping in cases where scrollbars never appear
-				if (fontSize < 1 || fontSize > 100) {
+				if (fontSize < 1 || fontSize > 200) {
 					break;
 				}
 			}
